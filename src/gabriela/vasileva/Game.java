@@ -9,14 +9,16 @@ public class Game {
     public Game() {
         this.startDeck = new StartDeck();
         this.gameDeck = new GameDeck(startDeck, 4);
-    }
 
-    public void startPlaying() {
-        System.out.println("STAR");
         this.hero = new Hero(0, "Pesho", 4, this.startDeck);
         this.robot = new Robot(0, 4, this.startDeck);
         this.hero.setEnemy(this.robot);
         this.robot.setEnemy(this.hero);
+        startPlaying();
+    }
+
+    public void startPlaying() {
+        System.out.println("STAR");
 
         while (true) {
             if (this.startDeck.cards.isEmpty()
